@@ -16,7 +16,11 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Home />
+        element: <Home />,
+        loader: () => {
+          return fetch('/api/home');
+        }
+
       },
       {
         path: "/timeline",
