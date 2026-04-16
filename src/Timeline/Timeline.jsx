@@ -16,7 +16,7 @@ const Timeline = () => {
       
       <div className="max-w-3xl mx-auto">
         
-        {/* 🔹 Title */}
+       
         <h1 className="text-2xl sm:text-4xl font-bold text-gray-800 mb-6 sm:mb-8">
           Timeline
         </h1>

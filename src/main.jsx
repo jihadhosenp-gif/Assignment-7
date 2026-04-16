@@ -21,10 +21,6 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Home />,
-        loader: () => {
-          return fetch('/api/home');
-        }
-
       },
       {
         path: "/timeline",
