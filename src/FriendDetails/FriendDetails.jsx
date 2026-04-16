@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { FaBell, } from 'react-icons/fa';
-import { IoArchive, IoCallSharp,  } from 'react-icons/io5';
+import { IoArchive, IoCallSharp, } from 'react-icons/io5';
 import { RiDeleteBin5Fill } from 'react-icons/ri';
 import { useLoaderData, useParams } from 'react-router';
 import { MdOutlineMessage, MdOutlineVideoCall } from 'react-icons/md';
@@ -12,13 +12,19 @@ import { FriendContext } from '../context/FriendProvider';
 
 
 const FriendDetails = () => {
-    
-    
+
+
 
     const { id } = useParams();
 
     const Friend = useLoaderData();
-    const {storedFriends,handleMarkAsFriend,} = useContext(FriendContext);
+
+
+
+
+    const { storedFriends, storedFriendsText, storedFriendsVideo, handleMarkAsFriends, handleMarkAsFriendsVideo, handleMarkAsFriendsText } = useContext(FriendContext);
+    console.log(storedFriends, storedFriendsText, storedFriendsVideo, handleMarkAsFriends, handleMarkAsFriendsVideo, handleMarkAsFriendsText, "friendContext");
+
 
 
 
@@ -33,8 +39,8 @@ const FriendDetails = () => {
     const { name, picture, status, bio, email, days_since_contact, goal, next_due_date } = exactFriend;
 
 
-    console.log(id,storedFriends, "id");
-    
+    console.log(id, "id");
+
 
     return (
         <div className="container mx-auto my-12 flex flex-col md:flex-row gap-10">
@@ -78,19 +84,19 @@ const FriendDetails = () => {
                 <div>
                     <div className="card card-border bg-base-100 w-96 bg-gray-300 shadow-sm mt-8 flex jiustify-between w-[800px]">
                         <div className="card-body">
-                             <div className="card-actions justify-end">     
+                            <div className="card-actions justify-end">
                                 <button className="btn btn-soft">Edit</button>
                             </div>
                             <h2 className="card-title">Relationship Goal</h2>
                             <p>Connect every {goal} days</p>
-                           
+
                         </div>
                     </div>
                 </div>
                 <div>
-            <button className= "btn btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl w-[230px] h-[200px] mt-10 mr-10" onClick={() => handleMarkAsFriend(id)} ><IoCallSharp /> Call</button>
-                    <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl w-[230px] h-[200px] mt-10 mr-10"><MdOutlineMessage /> Message</button>
-                    <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl w-[230px] h-[200px] mt-10 "><MdOutlineVideoCall /> Video </button>
+                    <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl w-[230px] h-[200px] mt-10 mr-10" onClick={() => handleMarkAsFriends(exactFriend)} ><IoCallSharp /> Call</button>
+                    <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl w-[230px] h-[200px] mt-10 mr-10" onClick={() => handleMarkAsFriendsText(exactFriend)}><MdOutlineMessage /> Message</button>
+                    <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl w-[230px] h-[200px] mt-10 " onClick={() => handleMarkAsFriendsVideo(exactFriend)}><MdOutlineVideoCall /> Video </button>
 
                 </div>
                 <div>
